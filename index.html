@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>FlixMix</title>
         <link
             href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -19,28 +19,39 @@
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <nav class="navbar navbar-nav navbar-dark bg-primary">
-            <div class="navbar-brand nav-title">FlixMix</div>
-            <div
-                class="search dark-theme-form container-fluid search-container"
-            >
-                <div class="input-group search-div">
-                    <button class="input-group-prepend btn-dropdown">
-                        Test
+        <header class="header-main">
+            <nav class="navbar navbar-nav navbar-dark bg-primary">
+                <a href="#" class="navbar-brand nav-title"
+                    ><span class="mix">F</span>lix <span class="mix">M</span>ix
+                </a>
+                
+                <div class="input-group ">
+                    <button
+                        class="btn btn-secondary btn-lg dropdown-toggle button-left"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Select Catagory &nbsp;
+                    <button
+                        class="btn btn-secondary btn-lg dropdown-toggle button-right "
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Select Drink Base
                     </button>
                     <input
                         type="text"
                         class="form-control search-box"
-                        placeholder="Movie"
+                        placeholder="Find me a pairing"
                     />
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -1,24 +1,49 @@
+body,
+html {
+    display: border-box;
+}
 .nav-title {
     font-size: 3rem;
 }
+.nav-title .mix {
+    color: orangered;
+}
+.header-main {
+}
 .navbar {
-    border-bottom: solid rgb(80, 78, 78);
+    border-bottom: solid white;
+    height: 200px;
 }
 .search-container {
-    margin-left: 100px;
+    padding-left: 100px;
 }
 .search {
-    border-top: solid darkgreen;
+    border: solid purple;
+    height: 50%;
 }
-.search-div {
-    display: flex;
-    width: 100%;
-    border: solid red;
+
+.input-group {
+    margin: 0;
+    padding: 0;
+    height: 35%;
+    border-radius: 0.375rem;
+
+    width: 80%;
 }
-.btn-dropdown {
-    height: 54px;
-    width: 19rem;
+.button-right {
+    border-radius: 0;
+}
+.button-left {
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.dropdown-toggle {
+    width: 200px;
 }
 .search-box {
+    width: 50px;
     height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 2rem;
 }
