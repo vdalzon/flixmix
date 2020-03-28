@@ -2,46 +2,67 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <title>FlixMix</title>
-      <link rel="stylesheet" href="./style.css">
-      <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/5b8601494c.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
-        <header class="header-main">
-            <nav class="navbar">
-                <a href="#" class="nav-title"
-                    ><span class="mix">F</span>lix<span class="mix">M</span>ix
-                </a>
-                
-                
-                
-            </nav>
-            <div class="search-container">
-                <div class="search-inner-div">
-                    <button 
-                        class="dropdown-btn left"
-                        type="button"
-                       
-                    >
-                        Select Catagory &nbsp;
-                    <button
-                        class="dropdown-btn right"
-                        type="button"
-                        
-                    >
-                        Select Drink Base
-                    </button>
-                    <input
-                        type="text"
-                        class=" search-input"
-                        placeholder="Find me a pairing"
-                    />
+        <div class="main-grid">
+            <header class="header-main">
+                <nav class="navbar">
+                    <a href="#" class="nav-title"
+                        ><span class="mix">F</span>lix<span class="mix">M</span
+                        >ix
+                    </a>
+                </nav>
+                <div class="search-container">
+                    <div class="search-inner-div">
+                        <span class="button-wrapper-left">
+                            <select class="dropdown-btn left" type="button">
+                                <option value="">Select Catagory </option>
 
+                                <option value="movies">Movies</option>
+                                <option value="music">Music</option>
+                            </select>
+                            <!-- <i class="fas fa-caret-down"></i> -->
+                        </span>
+                        <span class="button-wrapper-right">
+                            <select class="dropdown-btn right" type="button">
+                                <option value="">Select Drink Base</option>
+                                <option value="brandy">Brandy</option>
+                                <option value="gin">Gin</option>
+                                <option value="rum">Rum</option>
+                                <option value="tequila">Tequila</option>
+                                <option value="vodka">Vodka</option>
+                                <option value="whiskey">Whiskey</option>
+                            </select>
+                        </span>
+
+                        <input
+                            type="text"
+                            class=" search-input"
+                            placeholder="Find me a pairing"
+                        />
+                    </div>
+                </div>
+            </header>
+            <div class="bottom-main-container">
+                <div class="content-container">
+                    <h1>test</h1>
                 </div>
             </div>
-        </header>
-
-
+        </div>
+        <script src="./app.js"></script>
     </body>
 </html>
