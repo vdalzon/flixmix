@@ -1,3 +1,8 @@
-let base = ["Vodka", "Gin", "Rum", "Tequila", , "Whiskey", "Brandy"];
+let movieDetail = document.getElementById("card-movie-desc");
 
-console.log(base.sort());
+let limitChar = function() {
+    movieDetail.innerHTML =
+        movieDetail.innerHTML.substring(0, 1200) +
+        "...  <a class='read-more' href='#'>READ MORE</a>  ";
+};
+limitChar();
