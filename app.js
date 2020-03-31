@@ -1,4 +1,4 @@
-let movieDetail = document.getElementById("card-movie-desc");
+let movieDetail = document.querySelectorAll(".card-movie-desc");
 let drinkDetail = document.getElementById("card-drink-desc");
 let limitChar = function() {
     movieDetail.innerHTML =
