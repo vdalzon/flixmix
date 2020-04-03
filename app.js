@@ -1,15 +1,3 @@
-// ALL DOCUMENT SELECTORS
-
-let movieDetail = document.getElementById("card-movie-desc");
-
-let movieImg = document.getElementById("movie-image");
-
-let drinkDetail = document.getElementById("card-drink-desc");
-
-let drinkImg = document.getElementById("drink-image");
-
-let movies = document.getElementById("test");
-
 // MOVIE ARRAYS
 
 let movieImage = [
@@ -50,9 +38,42 @@ let drinkIngredient = [
     ],
 ];
 
+// TEMP MOVIE LIST ARRAY
+let movieAPI = [
+    "Flash: Flashpoint ",
+    "Harry Potter: Order of the Phoenix",
+    "John Wick",
+    "Spiderman into the spiderverse",
+    "Up",
+    "Robin Hood man in tights",
+];
+
+// ALL DOCUMENT SELECTORS
+
+const movieDetail = document.getElementById("card-movie-desc");
+
+const movieImg = document.getElementById("movie-image");
+
+const drinkDetail = document.getElementById("card-drink-desc");
+
+const drinkImg = document.getElementById("drink-image");
+
+const movies = document.getElementById("test");
+
+const searchMovies = document.getElementById("search-movies");
+
 // EVENT LISTENERS
 
 movies.addEventListener("click", createPairs);
+
+searchMovies.addEventListener("keyup", e => {
+    // get input text
+    const userText = e.target.value;
+
+    if (userText !== "") {
+        console.log(userText);
+    }
+});
 
 //EVENT HANDLER
 
@@ -88,7 +109,7 @@ function createMovieCard(i) {
 
     return movieCard;
 }
-let movieCard = createMovieCard(0);
+// let movieCard = createMovieCard(0);
 
 // DRINK FUNCTION
 
@@ -122,9 +143,10 @@ function createDrinkCard(i) {
     return drinkCard;
 }
 
-let drinkCard = createDrinkCard(3);
+//loop through array
 
-function createPairs() {
+function createPairs(i) {
+    i = 0;
     console.log("ran");
     let contentCont = document.createElement("div");
     let MainBottomCont = document.getElementById("bottom-main-container");
@@ -134,9 +156,16 @@ function createPairs() {
     
         <h1 class="movie-drink-title">MOVIES AND DRINKS</h1>
         <div id="pairs-container">
-            
-            ${movieCard}
-            ${drinkCard}   
+           
+            ${createMovieCard(0)}
+            ${createDrinkCard(0)}
+            ${createMovieCard(1)}
+            ${createDrinkCard(1)}
+            ${createMovieCard(2)}
+            ${createDrinkCard(2)}
+            ${createMovieCard(3)}
+            ${createDrinkCard(3)}
+             
             
 
            
@@ -148,13 +177,3 @@ function createPairs() {
 
     MainBottomCont.appendChild(contentCont);
 }
-
-// TEMP ARRAYS
-
-// movieDetail.innerHTML = trunText(movieDesc[2]);
-
-// movieImg.src = movieImage[0];
-// movieDetail.innerHTML = movieDesc[0];
-
-// drinkImg.src = drinkImage[0];
-// drinkDetail.innerHTML = drinkIngredient[0];

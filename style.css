@@ -63,6 +63,7 @@ select {
     appearance: none;
     -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
     background-color: white;
+    text-align: center;
 }
 
 .dropdown-btn {
@@ -179,7 +180,6 @@ select {
 /* CONTENT RESULTS*/
 .pairing-results-container {
     display: grid;
-
     grid-template-rows: 8% 80%;
     width: auto;
     min-height: 1150px;
@@ -188,7 +188,8 @@ select {
     display: inherit;
     grid-template-areas: "a a";
     grid-auto-rows: auto;
-    column-gap: 2%;
+    /* column-gap: 1%; */
+    row-gap: 2%;
     justify-items: center;
     padding-top: 1rem;
 
@@ -223,7 +224,6 @@ select {
     display: inherit;
     justify-items: center;
     grid-template-rows: 20% 80%;
-
     height: 75%;
     margin-bottom: 0;
     padding-bottom: 0;
