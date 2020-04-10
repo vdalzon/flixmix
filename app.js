@@ -66,7 +66,7 @@ const searchMovies = document.getElementById("search-movies");
 
 movies.addEventListener("click", createPairs);
 
-searchMovies.addEventListener("keyup", e => {
+searchMovies.addEventListener("keyup", (e) => {
     // get input text
     const userText = e.target.value;
 
@@ -109,7 +109,7 @@ function createMovieCard(i) {
 
     return movieCard;
 }
-// let movieCard = createMovieCard(0);
+// let movieCard = createMovieCard();
 
 // DRINK FUNCTION
 
@@ -142,8 +142,23 @@ function createDrinkCard(i) {
 
     return drinkCard;
 }
-
+// let drinkCard = createDrinkCard();
 //loop through array
+function cardPairs(i) {
+    i = i;
+    let paircard = ` ${createMovieCard(i)}  ${createDrinkCard(i)}`;
+    return paircard;
+}
+
+//ITERATE THROUGH PAIRS
+
+function allPairs() {
+    let results = "";
+    for (i = 0; i < movieDesc.length; i++) {
+        results += cardPairs(i);
+    }
+    return results;
+}
 
 function createPairs(i) {
     i = 0;
@@ -151,26 +166,24 @@ function createPairs(i) {
     let contentCont = document.createElement("div");
     let MainBottomCont = document.getElementById("bottom-main-container");
     contentCont.className = "content-container";
+    // <div class="pairing-results-container"> removed because of cardPair creation
     contentCont.innerHTML = `<div class="content-container">
-    <div class="pairing-results-container">
+    
     
         <h1 class="movie-drink-title">MOVIES AND DRINKS</h1>
+        
+        <div class="pairing-results-container">
         <div id="pairs-container">
-           
-            ${createMovieCard(0)}
-            ${createDrinkCard(0)}
-            ${createMovieCard(1)}
-            ${createDrinkCard(1)}
-            ${createMovieCard(2)}
-            ${createDrinkCard(2)}
-            ${createMovieCard(3)}
-            ${createDrinkCard(3)}
-             
+     ${allPairs()}
+        </div>
+         
+            
+          
             
 
            
             
-        </div>
+   
        
     </div>
 </div> `;
