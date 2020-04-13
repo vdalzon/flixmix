@@ -42,7 +42,7 @@ let drinkIngredient = [
 
 // TEMP MOVIE LIST ARRAY
 let movieAPI = [
-    "Flash: Flashpoint ",
+    "Flash: Flashpoint",
     "Harry Potter: Sorcerers Stone",
     "Harry Potter: Chamber of Secrets",
     "Harry Potter: Prisoner of Azkaban",
@@ -70,28 +70,37 @@ const movies = document.getElementById("test");
 
 const searchMovies = document.getElementById("search-movies");
 
-const dataList = document.querySelector(".movie-api-data-list");
+const movieList = document.querySelector(".movie-api-data-list");
+
+const buttonTest = document.getElementById("datalist-test");
 
 // const movieSelected = document.querySelector("datalist option");
 
 // EVENT LISTENERS
+
+// buttonTest.addEventListener("click", (e) => {
+//     console.log("worked");
+// });
 
 movies.addEventListener("click", createPairs);
 
 searchMovies.addEventListener("keyup", (e) => {
     // get input text
     if (e.target.value.length >= 3) {
-        dataList.setAttribute("id", "movie-api");
+        movieList.setAttribute("id", "movie-api");
     } else {
-        dataList.setAttribute("id", "");
+        movieList.setAttribute("id", "");
     }
 });
 
 movieAPI.forEach(function (item) {
-    var options = document.createElement("option");
+    let listUl = document.createElement("ul");
+    let listLi = document.createElement("li");
+    let options = document.createElement("option");
+    options.className = "movie-options";
     options.value = item;
-    options.setAttribute("class", "movie-options");
-    dataList.appendChild(options);
+
+    movieList.appendChild(options);
 });
 
 //create list of movies to search automatically
