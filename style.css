@@ -133,10 +133,17 @@ select {
     font-weight: 600;
     font-size: inherit;
     height: 43px;
-    width: 40%;
+    width: 45%;
     border: none;
     padding-left: 20px;
     outline: inherit;
+}
+/* DATALIST STYLE  */
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.movie-api-data-list {
+    background-color: hotpink;
 }
 
 /* INTRUCTIONS CONTAINER */

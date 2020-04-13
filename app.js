@@ -1,3 +1,5 @@
+//FILE FOR MOVIE API TEMPLATES IS UNDER DOCUMENTS
+
 // MOVIE ARRAYS
 
 let movieImage = [
@@ -41,7 +43,13 @@ let drinkIngredient = [
 // TEMP MOVIE LIST ARRAY
 let movieAPI = [
     "Flash: Flashpoint ",
+    "Harry Potter: Sorcerers Stone",
+    "Harry Potter: Chamber of Secrets",
+    "Harry Potter: Prisoner of Azkaban",
+    "Harry Potter: Goblet of Fire",
     "Harry Potter: Order of the Phoenix",
+    "Harry Potter: The Half Blood Prince",
+    "Harry Potter: Deathly Hollows",
     "John Wick",
     "Spiderman into the spiderverse",
     "Up",
@@ -62,18 +70,31 @@ const movies = document.getElementById("test");
 
 const searchMovies = document.getElementById("search-movies");
 
+const dataList = document.querySelector(".movie-api-data-list");
+
+// const movieSelected = document.querySelector("datalist option");
+
 // EVENT LISTENERS
 
 movies.addEventListener("click", createPairs);
 
 searchMovies.addEventListener("keyup", (e) => {
     // get input text
-    const userText = e.target.value;
-
-    if (userText !== "") {
-        console.log(userText);
+    if (e.target.value.length >= 3) {
+        dataList.setAttribute("id", "movie-api");
+    } else {
+        dataList.setAttribute("id", "");
     }
 });
+
+movieAPI.forEach(function (item) {
+    var options = document.createElement("option");
+    options.value = item;
+    options.setAttribute("class", "movie-options");
+    dataList.appendChild(options);
+});
+
+//create list of movies to search automatically
 
 //EVENT HANDLER
 
@@ -159,7 +180,7 @@ function allPairs() {
     }
     return results;
 }
-
+//CREATE CONTENTS WHEN ACTIVATED
 function createPairs(i) {
     i = 0;
     console.log("ran");
