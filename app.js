@@ -56,7 +56,7 @@ let movieAPI = [
     "Robin Hood man in tights",
 ];
 
-// ALL DOCUMENT SELECTORS
+// ALL DOCUMENT GET SELECTORS----------------------------------------------------------------------
 
 const movieDetail = document.getElementById("card-movie-desc");
 
@@ -73,14 +73,11 @@ const searchMovies = document.getElementById("search-movies");
 const movieList = document.querySelector(".movie-api-data-list");
 
 const searchDropdown = document.getElementById("search-dropdown");
+const instuct = document.getElementById("instruction");
 
-// EVENT LISTENERS
-
-// buttonTest.addEventListener("click", (e) => {
-//     console.log("worked");
-// });
-
+// ALL EVENT LISTENERS--------------------------------------------------------------------------
 searchDropdown.addEventListener("keyup", filterSearch);
+movies.addEventListener("click", movieSelected);
 
 function filterSearch(e) {
     let filter, li, i;
@@ -97,10 +94,9 @@ function filterSearch(e) {
     }
 }
 
-movies.addEventListener("click", movieSelected);
-
 function movieSelected(e) {
-    searchMovies.value = e.target.textContent;
+    searchMovies.value = "";
+    instuct.textContent = `Movies and Drinks Based on ${e.target.textContent}`;
     movieList.setAttribute("style", "display:none");
     createPairs();
 }
@@ -130,11 +126,10 @@ movieAPI.forEach(function (item) {
     movieList.appendChild(options);
 });
 
-//create list of movies to search automatically
+//FETCH REQUESTS-----------------------------------------------------------------------------------
 
-//EVENT HANDLER
-
-//CREATE PAIR FUNCTION
+//CREATE CARD FUNCTIONS----------------------------------------------------------------------------
+//CREATE MOVIE CARDS
 function createMovieCard(i) {
     i = i;
 
@@ -166,9 +161,8 @@ function createMovieCard(i) {
 
     return movieCard;
 }
-// let movieCard = createMovieCard();
 
-// DRINK FUNCTION
+//CREATE DRINK CARDS
 
 function createDrinkCard(i) {
     i = i;
@@ -199,8 +193,7 @@ function createDrinkCard(i) {
 
     return drinkCard;
 }
-// let drinkCard = createDrinkCard();
-//loop through array
+//CREATE MOVIE & DRINK CARD PAIR
 function cardPairs(i) {
     i = i;
     let paircard = ` ${createMovieCard(i)}  ${createDrinkCard(i)}`;
@@ -216,14 +209,15 @@ function allPairs() {
     }
     return results;
 }
-//CREATE CONTENTS WHEN ACTIVATED
+//APPEND CARDS TO DOM
 function createPairs(i) {
     i = 0;
-
+    let oldCont = document.getElementById("content-container");
     let newCont = document.createElement("div");
     let MainBottomCont = document.getElementById("bottom-main-container");
     newCont.className = "content-container";
-    let oldContent;
+    newCont.id = "content-container";
+
     // <div class="pairing-results-container"> removed because of cardPair creation
     newCont.innerHTML = `<div class="content-container">
     
@@ -246,5 +240,5 @@ function createPairs(i) {
     </div>
 </div> `;
 
-    MainBottomCont.appendChild(newCont);
+    MainBottomCont.replaceChild(newCont, oldCont);
 }
