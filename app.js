@@ -66,15 +66,13 @@ const drinkDetail = document.getElementById("card-drink-desc");
 
 const drinkImg = document.getElementById("drink-image");
 
-const movies = document.getElementById("test");
+const movies = document.getElementById("movie-api-data-list");
 
 const searchMovies = document.getElementById("search-movies");
 
 const movieList = document.querySelector(".movie-api-data-list");
 
 const searchDropdown = document.getElementById("search-dropdown");
-
-// const movieSelected = document.querySelector("datalist option");
 
 // EVENT LISTENERS
 
@@ -85,7 +83,7 @@ const searchDropdown = document.getElementById("search-dropdown");
 searchDropdown.addEventListener("keyup", filterSearch);
 
 function filterSearch(e) {
-    let input, filter, ul, li, a, i;
+    let filter, li, i;
 
     filter = searchMovies.value.toUpperCase();
     li = searchDropdown.getElementsByTagName("li");
@@ -99,7 +97,13 @@ function filterSearch(e) {
     }
 }
 
-movies.addEventListener("click", createPairs);
+movies.addEventListener("click", movieSelected);
+
+function movieSelected(e) {
+    searchMovies.value = e.target.textContent;
+    movieList.setAttribute("style", "display:none");
+    createPairs();
+}
 
 searchMovies.addEventListener("keyup", (e) => {
     // get input text
@@ -119,11 +123,9 @@ searchMovies.addEventListener("keydown", (e) => {
 });
 
 movieAPI.forEach(function (item) {
-    let listUl = document.createElement("ul");
-    let listLi = document.createElement("li");
-    let options = document.createElement("option");
+    let options = document.createElement("li");
     options.className = "movie-options";
-    options.value = item;
+    options.innerText = item;
 
     movieList.appendChild(options);
 });
@@ -217,12 +219,13 @@ function allPairs() {
 //CREATE CONTENTS WHEN ACTIVATED
 function createPairs(i) {
     i = 0;
-    console.log("ran");
-    let contentCont = document.createElement("div");
+
+    let newCont = document.createElement("div");
     let MainBottomCont = document.getElementById("bottom-main-container");
-    contentCont.className = "content-container";
+    newCont.className = "content-container";
+    let oldContent;
     // <div class="pairing-results-container"> removed because of cardPair creation
-    contentCont.innerHTML = `<div class="content-container">
+    newCont.innerHTML = `<div class="content-container">
     
     
         <h1 class="movie-drink-title">MOVIES AND DRINKS</h1>
@@ -243,5 +246,5 @@ function createPairs(i) {
     </div>
 </div> `;
 
-    MainBottomCont.appendChild(contentCont);
+    MainBottomCont.appendChild(newCont);
 }
