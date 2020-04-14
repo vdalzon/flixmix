@@ -9,10 +9,7 @@
         <button id="test">FlixMix</button>
         <!--REMOVE BUTTON AND CHANGE TAG BACK TO <TITLE>   -->
         <link rel="stylesheet" href="./style.css" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap"
-            rel="stylesheet"
-        />
+       
         <script
             src="https://kit.fontawesome.com/5b8601494c.js"
             crossorigin="anonymous"
@@ -51,17 +48,25 @@
                                 <option value="whiskey">Whiskey</option>
                             </select>
                         </span>
-
-                        <input
+                        <div id="search-dropdown" class="search-dropdown" ">
+                            <input
                             type="text"
                             class=" search-input"
                             placeholder="Find me a pairing"
                             id="search-movies"
                             list="movie-api"
+                            autocomplete="off"
                         />
-                        <datalist class="movie-api-data-list">
-                           
-                        </datalist>
+                        <ul class="movie-api-data-list" style="display: none;" >
+                           <li class="movie-options">Harry Potter: Sorcerers Stone</li>
+                           <li class="movie-options">Harry Potter: Chamber of Secrets</li>
+                           <li class="movie-options">Harry Potter: Prisoner of Azkaban</li>
+                           <li class="movie-options">Harry Potter: Goblet of Fire</li>
+                           <li class="movie-options">Harry Potter: Order of the Phoenix</li>
+                        </ul>
+                        </div>
+                        
+                     
                     </div>
                 </div>
          

@@ -72,7 +72,7 @@ const searchMovies = document.getElementById("search-movies");
 
 const movieList = document.querySelector(".movie-api-data-list");
 
-const buttonTest = document.getElementById("datalist-test");
+const searchDropdown = document.getElementById("search-dropdown");
 
 // const movieSelected = document.querySelector("datalist option");
 
@@ -82,14 +82,39 @@ const buttonTest = document.getElementById("datalist-test");
 //     console.log("worked");
 // });
 
+searchDropdown.addEventListener("keyup", filterSearch);
+
+function filterSearch(e) {
+    let input, filter, ul, li, a, i;
+
+    filter = searchMovies.value.toUpperCase();
+    li = searchDropdown.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        txtValue = li[i].textContent || li[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
 movies.addEventListener("click", createPairs);
 
 searchMovies.addEventListener("keyup", (e) => {
     // get input text
     if (e.target.value.length >= 3) {
         movieList.setAttribute("id", "movie-api");
+
+        movieList.setAttribute("style", "display:");
     } else {
         movieList.setAttribute("id", "");
+    }
+});
+
+searchMovies.addEventListener("keydown", (e) => {
+    if (e.target.value.length <= 3) {
+        movieList.setAttribute("style", "display:none");
     }
 });
 
