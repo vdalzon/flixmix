@@ -1,6 +1,6 @@
 const tstDive = new TasteDive();
 const movieOptions = new MovieOptions();
-
+const wiki = new WikiMedia();
 // ALL DOCUMENT GET SELECTORS----------------------------------------------------------------------
 
 const movieDetail = document.getElementById("card-movie-desc");
@@ -71,15 +71,27 @@ movieOptions.movies.forEach(function (item) {
 });
 
 //FETCH REQUESTS-----------------------------------------------------------------------------------
-// tstDive.get("tasteDive.json").then((data) => console.log(data));
+
+//fake fetch
+tstDive.get("tasteDive.json").then((data) => {
+    let movies = data;
+    // data.forEach((movies) => {
+    //     wiki.get(movies);
+    // });
+
+    wiki.get(movies);
+});
+
+//real fetch
 // tstDive
 //     .get(
-//         "https://tastedive.com/api/similar?info=1&limit=4&q=movie:harry potter&k=361760-Flixmix-940QY3AP"
+//         "https://tastedive.com/api/similar?info=1&limit=4&q=movie:the wolverine&k=361760-Flixmix-940QY3AP"
 //     )
 //     .then((data) => {
 //         let movies = data;
+
 //         data.forEach((movies) => {
-//             console.log(movies.wUrl);
+//             console.log(movies);
 //         });
 //     });
 
