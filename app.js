@@ -75,17 +75,21 @@ movieOptions.movies.forEach(function (item) {
 //fake fetch
 tstDive.get("tasteDive.json").then((data) => {
     let movies = data;
+    // console.log(movies);
     // data.forEach((movies) => {
     //     wiki.get(movies);
     // });
 
-    wiki.get(movies);
+    wiki.get(movies).then((data) => {
+        let movies = data;
+        console.log(movies);
+    });
 });
 
 //real fetch
 // tstDive
 //     .get(
-//         "https://tastedive.com/api/similar?info=1&limit=4&q=movie:the wolverine&k=361760-Flixmix-940QY3AP"
+//         "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&limit=4&q=movie:the wolverine&k=361760-Flixmix-940QY3AP"
 //     )
 //     .then((data) => {
 //         let movies = data;

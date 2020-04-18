@@ -9,34 +9,11 @@
                 "pageid": 29273565,
                 "ns": 0,
                 "title": "The Wolverine (film)",
-                "images": [
-                    { "ns": 6, "title": "File:Dragon-149393.svg" },
-                    { "ns": 6, "title": "File:Flag of the United States.svg" },
-                    { "ns": 6, "title": "File:Folder Hexagonal Icon.svg" },
-                    {
-                        "ns": 6,
-                        "title": "File:Hugh Jackman by Gage Skidmore 2.jpg"
-                    },
-                    {
-                        "ns": 6,
-                        "title": "File:James Mangold by Gage Skidmore.jpg"
-                    },
-                    {
-                        "ns": 6,
-                        "title": "File:OOjs UI icon edit-ltr-progressive.svg"
-                    },
-                    {
-                        "ns": 6,
-                        "title": "File:Silver Samurai - The Wolverine.jpg"
-                    },
-                    { "ns": 6, "title": "File:Star empty.svg" },
-                    { "ns": 6, "title": "File:Star full.svg" },
-                    { "ns": 6, "title": "File:Symbol support vote.svg" },
-                    { "ns": 6, "title": "File:The Wolverine Crew.jpg" },
-                    { "ns": 6, "title": "File:The Wolverine posterUS.jpg" },
-                    { "ns": 6, "title": "File:Video-x-generic.svg" },
-                    { "ns": 6, "title": "File:Wikiquote-logo.svg" }
-                ]
+                "original": {
+                    "source": "https://upload.wikimedia.org/wikipedia/en/7/74/The_Wolverine_posterUS.jpg",
+                    "width": 263,
+                    "height": 378
+                }
             }
         }
     }
