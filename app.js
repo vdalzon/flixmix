@@ -80,10 +80,8 @@ tstDive.get("tasteDive.json").then((data) => {
     //     wiki.get(movies);
     // });
 
-    wiki.get(movies).then((data) => {
-        let movies = data;
-        console.log(movies);
-    });
+    let movieInfo = wiki.get(movies);
+    console.log(movieInfo);
 });
 
 //real fetch

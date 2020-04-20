@@ -9,44 +9,44 @@ class WikiMedia {
 
     get(url) {
         let data = url;
-        let movieName = data[0].Name;
+        let movieCardArray = [];
 
-        // let parseMovieUrl = () => {
-        //     //WHEN IT IS TIME TO USE THE FOREACH REMOVE THE [0] AND JUST DO .
-        //     let nameOnly = data[3].wUrl.split("/")[4];
-        //     return nameOnly;
-        // };
+        let getImg = () => {
+            for (let i = 0; i < 4; i++) {
+                let movieName = data[i].Name;
+                fetch(this.imgReq + movieName + "&origin=*")
+                    .then((res) => res.json())
+                    .then((img) => {
+                        class movieCardInfo {
+                            constructor(name, detail, imgUrl) {
+                                this.name = name;
+                                this.detail = detail;
+                                this.imgUrl = imgUrl;
+                            }
+                        }
 
-        // let movieName = parseMovieUrl();
-        // console.log(movieName());
+                        // img.forEach()
+                        let title = img.query.pages;
+                        //when forEach is added removed [0] from everything except imgUrl
 
-        return fetch(this.imgReq + movieName + "&origin=*")
-            .then((res) => res.json())
-            .then((img) => {
-                class movieCardInfo {
-                    constructor(name, detail, imgUrl) {
-                        this.name = name;
-                        this.detail = detail;
-                        this.imgUrl = imgUrl;
-                    }
-                }
-                let movieCardArray = [];
+                        let name = data[i].Name;
+                        let detail = data[i].wTeaser;
+                        let imgUrl = Object.values(title)[0].original.source;
 
-                let title = img.query.pages;
-                //when forEach is added removed [0] from everything except imgUrl
-                let name = data[0].Name;
-                let detail = data[0].wTeaser;
-                let imgUrl = Object.values(title)[0].original.source;
-                function pushCardInfo() {
-                    movieCardArray.push(
-                        new movieCardInfo(name, detail, imgUrl)
-                    );
-                }
-                pushCardInfo();
-                console.log(movieCardArray);
+                        function pushCardInfo() {
+                            movieCardArray.push(
+                                new movieCardInfo(name, detail, imgUrl)
+                            );
+                        }
+                        pushCardInfo();
 
-                // console.log(test);
-                return imgUrl;
-            });
+                        // return movieCardArray;
+                    });
+            }
+        };
+        getImg();
+
+        return movieCardArray;
+        // console.log(getImg());
     }
 }
