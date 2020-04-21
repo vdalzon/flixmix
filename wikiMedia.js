@@ -8,30 +8,39 @@ class WikiMedia {
     }
 
     get(url) {
-        let data = url;
+        let data = url.sort((a, b) => (a.Name > b.Name ? 1 : -1));
         let movieCardArray = [];
 
+        let parseMovieUrl = () => {
+            let nameOnly = "";
+            for (let i = 0; i < data.length; i++) {
+                nameOnly += data[i].wUrl.split("/")[4] + "|";
+            }
+
+            return nameOnly.replace(/\|$/, "");
+        };
+        let movieName = parseMovieUrl();
+
         let getImg = () => {
-            for (let i = 0; i < 4; i++) {
-                let movieName = data[i].Name;
-                fetch(this.imgReq + movieName + "&origin=*")
-                    .then((res) => res.json())
-                    .then((img) => {
-                        class movieCardInfo {
-                            constructor(name, detail, imgUrl) {
-                                this.name = name;
-                                this.detail = detail;
-                                this.imgUrl = imgUrl;
-                            }
+            fetch(this.imgReq + movieName + "&origin=*")
+                .then((res) => res.json())
+                .then((img) => {
+                    class movieCardInfo {
+                        constructor(name, detail, imgUrl) {
+                            this.name = name;
+                            this.detail = detail;
+                            this.imgUrl = imgUrl;
                         }
+                    }
 
-                        // img.forEach()
-                        let title = img.query.pages;
-                        //when forEach is added removed [0] from everything except imgUrl
+                    // img.forEach()
+                    let title = img.query.pages;
 
+                    //when forEach is added removed [0] from everything except imgUrl
+                    for (let i = 0; i < data.length; i++) {
                         let name = data[i].Name;
                         let detail = data[i].wTeaser;
-                        let imgUrl = Object.values(title)[0].original.source;
+                        let imgUrl = Object.values(title)[i].original.source;
 
                         function pushCardInfo() {
                             movieCardArray.push(
@@ -39,10 +48,10 @@ class WikiMedia {
                             );
                         }
                         pushCardInfo();
-
-                        // return movieCardArray;
-                    });
-            }
+                    }
+                    console.log(movieCardArray);
+                    return movieCardArray;
+                });
         };
         getImg();
 

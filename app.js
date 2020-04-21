@@ -75,13 +75,12 @@ movieOptions.movies.forEach(function (item) {
 //fake fetch
 tstDive.get("tasteDive.json").then((data) => {
     let movies = data;
-    // console.log(movies);
+    console.log(data);
     // data.forEach((movies) => {
     //     wiki.get(movies);
     // });
 
     let movieInfo = wiki.get(movies);
-    console.log(movieInfo);
 });
 
 //real fetch

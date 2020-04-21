@@ -2,17 +2,59 @@
     "batchcomplete": "",
     "query": {
         "normalized": [
-            { "from": "The_Wolverine_(film)", "to": "The Wolverine (film)" }
+            {
+                "from": "Avengers:_Infinity_War",
+                "to": "Avengers: Infinity War"
+            },
+            {
+                "from": "Spider-Man:_Homecoming",
+                "to": "Spider-Man: Homecoming"
+            },
+            { "from": "Thor:_Ragnarok", "to": "Thor: Ragnarok" },
+            {
+                "from": "Guardians_of_the_Galaxy_Vol._2",
+                "to": "Guardians of the Galaxy Vol. 2"
+            }
         ],
         "pages": {
-            "29273565": {
-                "pageid": 29273565,
+            "44240443": {
+                "pageid": 44240443,
                 "ns": 0,
-                "title": "The Wolverine (film)",
+                "title": "Avengers: Infinity War",
                 "original": {
-                    "source": "https://upload.wikimedia.org/wikipedia/en/7/74/The_Wolverine_posterUS.jpg",
-                    "width": 263,
-                    "height": 378
+                    "source": "https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg",
+                    "width": 220,
+                    "height": 326
+                }
+            },
+            "43402974": {
+                "pageid": 43402974,
+                "ns": 0,
+                "title": "Guardians of the Galaxy Vol. 2",
+                "original": {
+                    "source": "https://upload.wikimedia.org/wikipedia/en/a/ab/Guardians_of_the_Galaxy_Vol_2_poster.jpg",
+                    "width": 259,
+                    "height": 384
+                }
+            },
+            "45359871": {
+                "pageid": 45359871,
+                "ns": 0,
+                "title": "Spider-Man: Homecoming",
+                "original": {
+                    "source": "https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg",
+                    "width": 220,
+                    "height": 326
+                }
+            },
+            "41974555": {
+                "pageid": 41974555,
+                "ns": 0,
+                "title": "Thor: Ragnarok",
+                "original": {
+                    "source": "https://upload.wikimedia.org/wikipedia/en/7/7d/Thor_Ragnarok_poster.jpg",
+                    "width": 220,
+                    "height": 326
                 }
             }
         }

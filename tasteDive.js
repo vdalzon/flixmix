@@ -1,7 +1,7 @@
 //LIVE TASTEDIVE CLASS
 // class TasteDive {
 //     constructor() {
-//         this.access_key = "361760-Flixmix-940QY3AP";
+//         this.access_key = "361760-Flixmix-JVYDSEIN";
 //         this.proxyurl = "https://cors-anywhere.herokuapp.com/";
 //     }
 
