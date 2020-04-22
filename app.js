@@ -86,7 +86,7 @@ tstDive.get("tasteDive.json").then((data) => {
 //real fetch
 // tstDive
 //     .get(
-//         "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&limit=4&q=movie:the wolverine&k=361760-Flixmix-940QY3AP"
+//         "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&limit=4&q=movie:the wolverine&k=361760-Flixmix-JVYDSEIN"
 //     )
 //     .then((data) => {
 //         let movies = data;
