@@ -1,6 +1,7 @@
 const tstDive = new TasteDive();
 const movieOptions = new MovieOptions();
 const wiki = new WikiMedia();
+const cocktails = new CockTail();
 // ALL DOCUMENT GET SELECTORS----------------------------------------------------------------------
 
 const movieDetail = document.getElementById("card-movie-desc");
@@ -75,12 +76,15 @@ movieOptions.movies.forEach(function (item) {
 //fake fetch
 tstDive.get("tasteDive.json").then((data) => {
     let movies = data;
-    console.log(data);
+
     // data.forEach((movies) => {
     //     wiki.get(movies);
     // });
 
     let movieInfo = wiki.get(movies);
+    console.log(movieInfo);
+    let drinkInfo = cocktails.get();
+    console.log(drinkInfo);
 });
 
 //real fetch

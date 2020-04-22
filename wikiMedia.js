@@ -21,7 +21,7 @@ class WikiMedia {
             return nameOnly.replace(/\|$/, "");
         };
         let movieName = parseMovieUrl();
-        console.log(this.imgReq + movieName + "&origin=*");
+
         let getImg = () => {
             // fetch(this.imgReq + movieName + "&origin=*")
             fetch("wikiMedia.json")
@@ -54,7 +54,7 @@ class WikiMedia {
                                 return img;
                             }
                         }
-                        console.log(imgUrl);
+
                         function pushCardInfo() {
                             movieCardArray.push(
                                 new movieCardInfo(name, detail, imgUrl)
@@ -62,7 +62,7 @@ class WikiMedia {
                         }
                         pushCardInfo();
                     }
-                    console.log(movieCardArray);
+
                     return movieCardArray;
                 });
         };
