@@ -38,12 +38,39 @@ function filterSearch(e) {
         }
     }
 }
+let movieName = "";
 
 function movieSelected(e) {
     searchMovies.value = "";
     instuct.textContent = `Movies and Drinks Based on ${e.target.textContent}`;
     movieList.setAttribute("style", "display:none");
-    createPairs();
+    movieName = e.target.textContent;
+    console.log(movieName);
+    // createPairs();
+
+    //FETCH CALL MADE UPON EVENT BEING FIRED
+
+    // switch tastedive.json to url + ${movieName}
+    tstDive.get("tasteDive.json").then((data) => {
+        let movies = data;
+
+        // data.forEach((movies) => {
+        //     wiki.get(movies);
+        // });
+
+        let movieInfo = wiki.get(movies).then((res) => {
+            let movieArray = res;
+            console.log(movieArray);
+            let movieCards = createMovieCard(movieArray);
+            console.log(movieCards);
+        });
+        let drinkInfo = cocktails.get().then((res) => {
+            let drinkArray = res;
+            let drinkCards = createDrinkCard(drinkArray);
+            console.log(drinkArray);
+            console.log(drinkCards);
+        });
+    });
 }
 
 searchMovies.addEventListener("keyup", (e) => {
@@ -74,18 +101,6 @@ movieOptions.movies.forEach(function (item) {
 //FETCH REQUESTS-----------------------------------------------------------------------------------
 
 //fake fetch
-tstDive.get("tasteDive.json").then((data) => {
-    let movies = data;
-
-    // data.forEach((movies) => {
-    //     wiki.get(movies);
-    // });
-
-    let movieInfo = wiki.get(movies);
-    console.log(movieInfo);
-    let drinkInfo = cocktails.get();
-    console.log(drinkInfo);
-});
 
 //real fetch
 // tstDive
@@ -137,16 +152,17 @@ READ MORE
 
 //CREATE CARD FUNCTIONS----------------------------------------------------------------------------
 //CREATE MOVIE CARDS
-function createMovieCard(i) {
-    i = i;
-
-    let movieCard = ` <div class="content-movie">
+function createMovieCard(movieArray) {
+    let movies = movieArray;
+    let movieCard = [];
+    for (let i = 0; i < 4; i++) {
+        movieCard.push(` <div class="content-movie">
     <div class="card-movie">
         <img
             class="content-image"
             id="movie-image"
             alt="Picture of movie poster"
-            src="${movieImage[i]}"
+            src="${movies[i].imgUrl}"
         />
         <div class="movie-detail-container">
             <h3 class="detail-title">
@@ -157,30 +173,32 @@ function createMovieCard(i) {
                 id="card-movie-desc"
                 class="card-desc"
             >
-            ${details}
+            ${movies[i].detail}
             </p>
             <button class="read-more">
                 READ MORE
             </button>
         </div>
     </div>
-    </div>`;
+    </div>`);
+    }
 
     return movieCard;
 }
 
 //CREATE DRINK CARDS
 
-function createDrinkCard(i) {
-    i = i;
-
-    let drinkCard = ` <div class="content-drink">
+function createDrinkCard(drinkArray) {
+    let drinks = drinkArray;
+    let drinkCard = [];
+    for (let i = 0; i < 4; i++) {
+        drinkCard.push(` <div class="content-drink">
 <div class="card-drink">
     <img
         class="content-image"
         id="drink-image"
         alt="Picture of cocktail"
-        src="${drinkImage[i]}"
+        src="${drinks[i].img}"
     />
 
     <div class="drink-detail-container">
@@ -189,14 +207,15 @@ function createDrinkCard(i) {
             id="card-drink-desc"
             class="card-desc card-drink-desc"
         >
-            ${drinkIngredient[i]}
+            ${drinks[i].ingr}
         </p>
         <button class="read-more">
             READ MORE
         </button>
     </div>
 </div>
-</div>`;
+</div>`);
+    }
 
     return drinkCard;
 }
@@ -217,8 +236,9 @@ function cardPairs(i) {
 //     return results;
 // }
 //APPEND CARDS TO DOM
-function createPairs(i) {
-    i = 0;
+function createPairs(movie, drink) {
+    let movieCards = movie;
+    let drinkCards = drink;
     let oldCont = document.getElementById("content-container");
     let newCont = document.createElement("div");
     let MainBottomCont = document.getElementById("bottom-main-container");
@@ -233,7 +253,7 @@ function createPairs(i) {
         
         <div class="pairing-results-container">
         <div id="pairs-container">
-     ${cardPairs()}
+     ${movieCards} ${drinkCards}
         </div>
          
             

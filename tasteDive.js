@@ -14,7 +14,7 @@
 // }
 
 //FAKE TASTEDIVE CLASS
-
+// tastdive url= https://tastedive.com/api/similar?info=1&type=movie&limit=4&q=pulp+fiction
 class TasteDive {
     constructor() {
         this.access_key = "361760-Flixmix-940QY3AP";

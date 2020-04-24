@@ -5,73 +5,44 @@ class CockTail {
     }
 
     get() {
-        let drinkCardArray = [];
         let getDrinks = () => {
-            Promise.all([
-                fetch(this.drinkReq),
-                fetch(this.drinkReq),
-                fetch(this.drinkReq),
-                fetch(this.drinkReq),
-            ])
-                .then((res) => {
-                    console.log(res);
-                    return res.map((resArray) => {
-                        return resArray.json();
-                    });
-                })
-                .then((res) => {
-                    class drinkCardInfo {
-                        constructor(name, detail, imgUrl) {
-                            this.name = name;
-                            this.detail = detail;
-                            this.imgUrl = imgUrl;
-                        }
+            return Promise.all([
+                fetch(this.drinkReq).then((res) => res.json()),
+                fetch(this.drinkReq).then((res) => res.json()),
+                fetch(this.drinkReq).then((res) => res.json()),
+                fetch(this.drinkReq).then((res) => res.json()),
+            ]).then((res) => {
+                class drinkCardInfo {
+                    constructor(name, ingr, img) {
+                        (this.name = name),
+                            (this.ingr = ingr),
+                            (this.img = img);
                     }
-                    for (let i = 0; i < 4; i++) {
-                        res[i].then((res) => {
-                            let drinkObj = res.drinks[0];
-                            let drinkName = drinkObj.strDrink;
-                            let drinkImg = drinkObj.strDrinkThumb;
-                            let drinkIngr = [
-                                drinkObj.strIngredient1,
-                                drinkObj.strIngredient2,
-                                drinkObj.strIngredient3,
-                                drinkObj.strIngredient4,
-                                drinkObj.strIngredient5,
-                            ];
-                            // let drinkIngr = drinkObj.strIngredient1;
-                            // let drinkIngr = checkIngr();
+                }
 
-                            // function checkIngr() {
-                            //     for (let i = 1; i <= 8; i++) {
-                            //         let ingrArray = [];
+                let drinks = [];
+                for (let i = 0; i < 4; i++) {
+                    let drinkData = res[i].drinks[0];
 
-                            //         if (drinkObj.drinktest !== null) {
-                            //             ingrArray.push(
-                            //                 drinkObj.strIngredient + [i]
-                            //             );
-                            //         }
-                            //         console.log(ingrArray);
-                            //         return ingrArray;
-                            //     }
-                            // }
-                            function pushCardInfo() {
-                                drinkCardArray.push(
-                                    new drinkCardInfo(
-                                        drinkName,
-                                        drinkIngr,
-                                        drinkImg
-                                    )
-                                );
-                            }
-                            pushCardInfo();
-                        });
+                    let drinkName = drinkData.strDrink;
+                    let drinkImg = drinkData.strDrinkThumb;
+                    let drinkIngr = [
+                        drinkData.strIngredient1,
+                        drinkData.strIngredient2,
+                        drinkData.strIngredient3,
+                        drinkData.strIngredient4,
+                        drinkData.strIngredient5,
+                    ];
+                    function pushCardInfo() {
+                        drinks.push(
+                            new drinkCardInfo(drinkName, drinkIngr, drinkImg)
+                        );
                     }
-
-                    // console.log(drinks.drinks[0].strDrink);
-                });
+                    pushCardInfo();
+                }
+                return drinks;
+            });
         };
-        getDrinks();
-        return drinkCardArray;
+        return getDrinks();
     }
 }
