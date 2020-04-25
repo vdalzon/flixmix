@@ -20,6 +20,8 @@ const movieList = document.querySelector(".movie-api-data-list");
 
 const searchDropdown = document.getElementById("search-dropdown");
 const instuct = document.getElementById("instruction");
+const moviesContainer = document.getElementById("movies-container");
+const drinksContainer = document.getElementById("drinks-container");
 
 // ALL EVENT LISTENERS--------------------------------------------------------------------------
 searchDropdown.addEventListener("keyup", filterSearch);
@@ -63,12 +65,14 @@ function movieSelected(e) {
             console.log(movieArray);
             let movieCards = createMovieCard(movieArray);
             console.log(movieCards);
+            moviesContainer.innerHTML = movieCards;
         });
         let drinkInfo = cocktails.get().then((res) => {
             let drinkArray = res;
             let drinkCards = createDrinkCard(drinkArray);
             console.log(drinkArray);
             console.log(drinkCards);
+            drinksContainer.innerHTML += drinkCards;
         });
     });
 }
@@ -97,25 +101,6 @@ movieOptions.movies.forEach(function (item) {
 
     movieList.appendChild(options);
 });
-
-//FETCH REQUESTS-----------------------------------------------------------------------------------
-
-//fake fetch
-
-//real fetch
-// tstDive
-//     .get(
-//         "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&limit=4&q=movie:the wolverine&k=361760-Flixmix-JVYDSEIN"
-//     )
-//     .then((data) => {
-//         let movies = data;
-
-//         data.forEach((movies) => {
-//             console.log(movies);
-//         });
-//     });
-
-//TASTEDIVE REQUESTS
 
 //TESSSSSSTTTTTTTT
 function creatCards() {
@@ -156,7 +141,7 @@ function createMovieCard(movieArray) {
     let movies = movieArray;
     let movieCard = [];
     for (let i = 0; i < 4; i++) {
-        movieCard.push(` <div class="content-movie">
+        movieCard.push(` <div class="content-movie" id='content-movie'>
     <div class="card-movie">
         <img
             class="content-image"
@@ -183,7 +168,7 @@ function createMovieCard(movieArray) {
     </div>`);
     }
 
-    return movieCard;
+    return movieCard.join(" ");
 }
 
 //CREATE DRINK CARDS
@@ -192,7 +177,7 @@ function createDrinkCard(drinkArray) {
     let drinks = drinkArray;
     let drinkCard = [];
     for (let i = 0; i < 4; i++) {
-        drinkCard.push(` <div class="content-drink">
+        drinkCard.push(` <div class="content-drink" id="content-drink">
 <div class="card-drink">
     <img
         class="content-image"
@@ -217,7 +202,7 @@ function createDrinkCard(drinkArray) {
 </div>`);
     }
 
-    return drinkCard;
+    return drinkCard.join(" ");
 }
 //CREATE MOVIE & DRINK CARD PAIR
 function cardPairs(i) {
@@ -249,22 +234,7 @@ function createPairs(movie, drink) {
     newCont.innerHTML = `<div class="content-container">
     
     
-        <h1 class="movie-drink-title">MOVIES AND DRINKS</h1>
         
-        <div class="pairing-results-container">
-        <div id="pairs-container">
-     ${movieCards} ${drinkCards}
-        </div>
-         
-            
-          
-            
-
-           
-            
-   
-       
-    </div>
 </div> `;
 
     MainBottomCont.replaceChild(newCont, oldCont);
