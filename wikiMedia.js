@@ -22,7 +22,7 @@ class WikiMedia {
 
         let getImg = () => {
             // fetch(this.imgReq + movieName + "&origin=*")
-            return fetch("wikiMedia.json")
+            return fetch(this.imgReq + movieName + "&origin=*")
                 .then((res) => res.json())
                 .then((img) => {
                     class movieCardInfo {
@@ -32,9 +32,12 @@ class WikiMedia {
                             this.imgUrl = imgUrl;
                         }
                     }
+                    console.log(img);
+
                     let movieCardArray = [];
                     // img.forEach()
                     let title = img.query.pages;
+                    console.log(Object.values(title));
 
                     //when forEach is added removed [0] from everything except imgUrl
                     for (let i = 0; i < data.length; i++) {

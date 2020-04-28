@@ -50,31 +50,35 @@ function movieSelected(e) {
     console.log(movieName);
     // createPairs();
 
-    //FETCH CALL MADE UPON EVENT BEING FIRED
+    //FETCH CALL MADE UPON EVENT BEING FIRED-------------------------------------------------------
 
     // switch tastedive.json to url + ${movieName}
-    tstDive.get("tasteDive.json").then((data) => {
-        let movies = data;
+    tstDive
+        .get(
+            `https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&type=movie&limit=4&q=movie:${movieName}&k=361760-Flixmix-JVYDSEIN`
+        )
+        .then((data) => {
+            let movies = data;
 
-        // data.forEach((movies) => {
-        //     wiki.get(movies);
-        // });
+            // data.forEach((movies) => {
+            //     wiki.get(movies);
+            // });
 
-        let movieInfo = wiki.get(movies).then((res) => {
-            let movieArray = res;
-            console.log(movieArray);
-            let movieCards = createMovieCard(movieArray);
+            let movieInfo = wiki.get(movies).then((res) => {
+                let movieArray = res;
+                console.log(movieArray);
+                let movieCards = createMovieCard(movieArray);
 
-            moviesContainer.innerHTML = movieCards;
+                moviesContainer.innerHTML = movieCards;
+            });
+            let drinkInfo = cocktails.get().then((res) => {
+                let drinkArray = res;
+                let drinkCards = createDrinkCard(drinkArray);
+                console.log(drinkArray);
+
+                drinksContainer.innerHTML = drinkCards;
+            });
         });
-        let drinkInfo = cocktails.get().then((res) => {
-            let drinkArray = res;
-            let drinkCards = createDrinkCard(drinkArray);
-            console.log(drinkArray);
-
-            drinksContainer.innerHTML += drinkCards;
-        });
-    });
 }
 
 searchMovies.addEventListener("keyup", (e) => {
