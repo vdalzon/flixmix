@@ -52,7 +52,7 @@ function movieSelected(e) {
 
     //FETCH CALL MADE UPON EVENT BEING FIRED-------------------------------------------------------
 
-    // switch tastedive.json to url + ${movieName}
+    // switch tastedive.json to "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&type=movie&limit=4&q=movie:${movieName}&k=361760-Flixmix-JVYDSEIN"
     tstDive
         .get(
             `https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&type=movie&limit=4&q=movie:${movieName}&k=361760-Flixmix-JVYDSEIN`
