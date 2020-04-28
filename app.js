@@ -64,14 +64,14 @@ function movieSelected(e) {
             let movieArray = res;
             console.log(movieArray);
             let movieCards = createMovieCard(movieArray);
-            console.log(movieCards);
+
             moviesContainer.innerHTML = movieCards;
         });
         let drinkInfo = cocktails.get().then((res) => {
             let drinkArray = res;
             let drinkCards = createDrinkCard(drinkArray);
             console.log(drinkArray);
-            console.log(drinkCards);
+
             drinksContainer.innerHTML += drinkCards;
         });
     });
@@ -187,13 +187,13 @@ function createDrinkCard(drinkArray) {
     />
 
     <div class="drink-detail-container">
-        <h3>Drink Ingredients</h3>
-        <p
+        <h3>${drinks[i].name}</h3>
+        <ul
             id="card-drink-desc"
             class="card-desc card-drink-desc"
         >
             ${drinks[i].ingr}
-        </p>
+        </ul>
         <button class="read-more">
             READ MORE
         </button>
