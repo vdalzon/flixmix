@@ -155,7 +155,7 @@ function createMovieCard(movieArray) {
         />
         <div class="movie-detail-container">
             <h3 class="detail-title">
-                Movie detail
+            ${movies[i].name}
             </h3>
 
             <p
