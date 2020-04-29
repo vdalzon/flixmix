@@ -25,6 +25,8 @@ class TasteDive {
         return fetch(url)
             .then((res) => res.json())
             .then((data) => data.Similar.Results)
-            .catch((err) => err);
+            .catch((err) =>
+                alert("API is currently unavailable. Please try again later")
+            );
     }
 }

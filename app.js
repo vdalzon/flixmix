@@ -47,7 +47,7 @@ function movieSelected(e) {
     instuct.textContent = `Movies and Drinks Based on ${e.target.textContent}`;
     movieList.setAttribute("style", "display:none");
     movieName = e.target.textContent;
-    console.log(movieName);
+
     // createPairs();
 
     //FETCH CALL MADE UPON EVENT BEING FIRED-------------------------------------------------------
@@ -66,7 +66,7 @@ function movieSelected(e) {
 
             let movieInfo = wiki.get(movies).then((res) => {
                 let movieArray = res;
-                console.log(movieArray);
+
                 let movieCards = createMovieCard(movieArray);
 
                 moviesContainer.innerHTML = movieCards;
@@ -75,7 +75,6 @@ function movieSelected(e) {
                 let drinkArray = res;
                 let drinkCards = createDrinkCard(drinkArray);
                 console.log(drinkArray);
-
                 drinksContainer.innerHTML = drinkCards;
             });
         });
@@ -164,9 +163,9 @@ function createMovieCard(movieArray) {
             >
             ${movies[i].detail}
             </p>
-            <button class="read-more">
-                READ MORE
-            </button>
+            <a class="read-more" href="${movies[i].trailer}" target="_blank" rel="noreferrer noopener">
+               View Trailer
+            </a>
         </div>
     </div>
     </div>`);
@@ -198,9 +197,9 @@ function createDrinkCard(drinkArray) {
         >
             ${drinks[i].ingr}
         </ul>
-        <button class="read-more">
-            READ MORE
-        </button>
+        <a class="read-more" href="${drinks[i].detail}" target="_blank" rel="noreferrer noopener">
+               Read More
+            </a>
     </div>
 </div>
 </div>`);

@@ -9,7 +9,7 @@ class WikiMedia {
 
     get(url) {
         let data = url.sort((a, b) => (a.Name > b.Name ? 1 : -1));
-
+        console.log(data);
         let parseMovieUrl = () => {
             let nameOnly = "";
             for (let i = 0; i < data.length; i++) {
@@ -25,7 +25,6 @@ class WikiMedia {
             return fetch(this.imgReq + movieName + "&origin=*")
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     let movieTitleArray = [];
                     let title = data.query.pages;
                     for (let i = 0; i < 4; i++) {
@@ -54,10 +53,11 @@ class WikiMedia {
                 })
                 .then((img) => {
                     class movieCardInfo {
-                        constructor(name, detail, imgUrl) {
+                        constructor(name, detail, imgUrl, trailer) {
                             this.name = name;
                             this.detail = detail;
                             this.imgUrl = imgUrl;
+                            this.trailer = trailer;
                         }
                     }
 
@@ -69,10 +69,11 @@ class WikiMedia {
                         let name = data[i].Name;
                         let detail = data[i].wTeaser;
                         let imgUrl = img[i].Url;
+                        let trailer = data[i].yUrl;
 
                         function pushCardInfo() {
                             movieCardArray.push(
-                                new movieCardInfo(name, detail, imgUrl)
+                                new movieCardInfo(name, detail, imgUrl, trailer)
                             );
                         }
 

@@ -13,10 +13,11 @@ class CockTail {
                 fetch(this.drinkReq).then((res) => res.json()),
             ]).then((res) => {
                 class drinkCardInfo {
-                    constructor(name, ingr, img) {
+                    constructor(name, ingr, img, detail) {
                         (this.name = name),
                             (this.ingr = ingr),
-                            (this.img = img);
+                            (this.img = img),
+                            (this.detail = detail);
                     }
                 }
 
@@ -33,8 +34,9 @@ class CockTail {
                         drinkData.strIngredient4,
                         drinkData.strIngredient5,
                     ];
+                    let drinkDetail = `https://www.thecocktaildb.com/drink.php?c=${drinkData.idDrink}`;
                     let drinkIngrAll = drinkIngrList.filter(
-                        (drink) => (drink != null) | ""
+                        (drink) => drink != null || ""
                     );
                     let drinkIngrMost = drinkIngrAll.map((drink) => {
                         let drinks = `<li>${drink}</li>`;
@@ -45,7 +47,12 @@ class CockTail {
                     // console.log(drinkIngr);
                     function pushCardInfo() {
                         drinks.push(
-                            new drinkCardInfo(drinkName, drinkIngr, drinkImg)
+                            new drinkCardInfo(
+                                drinkName,
+                                drinkIngr,
+                                drinkImg,
+                                drinkDetail
+                            )
                         );
                     }
                     pushCardInfo();
