@@ -172,6 +172,7 @@ select {
     padding-left: 20px;
     outline: inherit;
     position: relative;
+    width: 80%;
 }
 /* DATALIST STYLE  */
 input::-webkit-calendar-picker-indicator {
@@ -235,7 +236,7 @@ input::-webkit-calendar-picker-indicator {
 }
 /* MOVIE CARD STYLE */
 .content-movie {
-    width: 600px;
+    width: 35rem;
     height: 15rem;
     background: white;
     margin: 0 2.5%;
@@ -261,7 +262,7 @@ input::-webkit-calendar-picker-indicator {
 /* DRINK CARD STYLE */
 .content-drink {
     grid-column-start: 2;
-    width: 600px;
+    width: 35rem;
     height: 15rem;
     background: white;
     margin: 0 2.5%;
