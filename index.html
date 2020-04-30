@@ -14,6 +14,7 @@
             src="https://kit.fontawesome.com/5b8601494c.js"
             crossorigin="anonymous"
         ></script>
+        <title>FlixMix</title>
     </head>
     <body>
         <div class="main-grid">
@@ -26,8 +27,8 @@
                 </nav>
                 <div class="search-container">
                     <div class="search-inner-div">
-                        <span class="button-wrapper-left">
-                            <select class="dropdown-btn left" type="button">
+                        <!-- <span class="button-wrapper-left">
+                            <select class="dropdown-btn left">
                                 <option value="">Select Category </option>
 
                                 <option id="option-movie" value="movies"
@@ -35,10 +36,10 @@
                                 >
                                 <option disabled value="music">Music</option>
                             </select>
-                            <!-- <i class="fas fa-caret-down"></i> -->
-                        </span>
-                        <span class="button-wrapper-right">
-                            <select class="dropdown-btn right" type="button">
+                            
+                        </span> -->
+                        <!-- <span class="button-wrapper-right">
+                            <select class="dropdown-btn right">
                                 <option value="">Select Drink Base</option>
 
                                 <option  value="brandy">All</option>
@@ -49,14 +50,14 @@
                                 <option disabled value="vodka">Vodka</option>
                                 <option disabled value="whiskey">Whiskey</option>
                             </select>
-                        </span>
-                        <div id="search-dropdown" class="search-dropdown" ">
+                        </span> -->
+                        <div id="search-dropdown" class="search-dropdown">
                             <input
                             type="text"
                             class=" search-input"
                             placeholder="Search for Movies"
                             id="search-movies"
-                            list="movie-api"
+                            
                             autocomplete="off"
                         />
                         <ul id='movie-api-data-list' class="movie-api-data-list" style="display: none;" >
@@ -101,7 +102,7 @@
 
 
         <script src="./tasteDive.js"></script>  
-        <script src="./movieList.js"></script>   
+        
         <script src="./wikiMedia.js"></script>  
         <script src="./cocktailDB.js"></script>
         <script src="./app.js"></script>
