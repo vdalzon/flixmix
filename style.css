@@ -230,10 +230,7 @@ input::-webkit-calendar-picker-indicator {
     justify-items: center;
     padding-top: 1rem;
 }
-#movies-container {
-}
-#drinks-container {
-}
+
 /* MOVIE CARD STYLE */
 .content-movie {
     width: 35rem;
