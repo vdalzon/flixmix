@@ -2671,6 +2671,7 @@ const movieoptions = [
 searchDropdown.addEventListener("keyup", filterSearch);
 movies.addEventListener("click", movieSelected);
 
+// filters through the movie list options
 function filterSearch(e) {
     let filter, li, i;
     filter = searchMovies.value.toUpperCase();
@@ -2686,6 +2687,7 @@ function filterSearch(e) {
 }
 let movieName = "";
 
+//Grabs movie selected and changes the instruction text
 function movieSelected(e) {
     searchMovies.value = "";
     instuct.textContent = `Movies and Drinks Based on ${e.target.textContent}`;
@@ -2696,17 +2698,12 @@ function movieSelected(e) {
 
     //FETCH CALL MADE UPON EVENT BEING FIRED-------------------------------------------------------
 
-    // switch tastedive.json to "https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&type=movie&limit=4&q=movie:${movieName}&k=361760-Flixmix-JVYDSEIN"
     tstDive
         .get(
             `https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?info=1&type=movie&limit=4&q=movie:${movieName}&k=361760-Flixmix-JVYDSEIN`
         )
         .then((data) => {
             let movies = data;
-
-            // data.forEach((movies) => {
-            //     wiki.get(movies);
-            // });
 
             let movieInfo = wiki.get(movies).then((res) => {
                 let movieArray = res;
@@ -2715,15 +2712,16 @@ function movieSelected(e) {
 
                 moviesContainer.innerHTML = movieCards;
             });
+
             let drinkInfo = cocktails.get().then((res) => {
                 let drinkArray = res;
                 let drinkCards = createDrinkCard(drinkArray);
-                console.log(drinkArray);
+
                 drinksContainer.innerHTML = drinkCards;
             });
         });
 }
-
+//Hides dropdown until
 searchMovies.addEventListener("keyup", (e) => {
     // get input text
     if (e.target.value.length >= 3) {
@@ -2748,39 +2746,6 @@ movieoptions.forEach(function (item) {
 
     movieList.appendChild(options);
 });
-
-//TESSSSSSTTTTTTTT
-function creatCards() {
-    for (i = 0; i < 4; i++) {
-        console.log(tasteDive[i].Name);
-        console.log(wikiVal[i].Link);
-        movieCard += ` <div class="content-movie">
-<div class="card-movie">
-<img
-class="content-image"
-id="movie-image"
-alt="Picture of movie poster"
-src="${wikiVal[i].Link}"
-/>
-<div class="movie-detail-container">
-<h3 class="detail-title">
-${tasteDive[i].Name}
-</h3>
-
-<p
-id="card-movie-desc"
-class="card-desc"
->
-${tasteDive[i].wTeaser}
-</p>
-<button class="read-more">
-READ MORE
-</button>
-</div>
-</div>
-</div>`;
-    }
-}
 
 //CREATE CARD FUNCTIONS----------------------------------------------------------------------------
 //CREATE MOVIE CARDS
@@ -2858,15 +2823,6 @@ function cardPairs(i) {
     return paircard;
 }
 
-//ITERATE THROUGH PAIRS
-
-// function allPairs() {
-//     let results = "";
-//     for (i = 0; i < movieDesc.length; i++) {
-//         results += cardPairs(i);
-//     }
-//     return results;
-// }
 //APPEND CARDS TO DOM
 function createPairs(movie, drink) {
     let movieCards = movie;

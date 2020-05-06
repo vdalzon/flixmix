@@ -2,14 +2,11 @@ class WikiMedia {
     constructor() {
         this.imgReq =
             "https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&&pilicense=any&format=json&piprop=original&titles=";
-
-        //do not currently need proxy url, replaced by adding "&origin=*" at the end of the request
-        this.proxyurl = "https://cors-anywhere.herokuapp.com/";
     }
 
     get(url) {
         let data = url.sort((a, b) => (a.Name > b.Name ? 1 : -1));
-        console.log(data);
+
         let parseMovieUrl = () => {
             let nameOnly = "";
             for (let i = 0; i < data.length; i++) {
@@ -64,7 +61,6 @@ class WikiMedia {
                     let movieCardArray = [];
                     // img.forEach()
 
-                    //when forEach is added removed [0] from everything except imgUrl
                     for (let i = 0; i < data.length; i++) {
                         let name = data[i].Name;
                         let detail = data[i].wTeaser;
